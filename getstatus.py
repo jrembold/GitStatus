@@ -34,7 +34,8 @@ def get_status(folder):
     else:
         return '#1e8449'
 
-message = "<span color='{color}'>⚫<b>{name}</b></span>"
+# message = "<span color='{color}'>⚫<b>{name}</b></span>"
+message = "%{{F{color}}}%{{T2}}%{{T-}} {name}%{{F-}}"
 args=create_argparse()
 status = get_status(args.folder)
 print(message.format(color=status,name=args.fname))

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+folder=$1
+dirty=$(git --git-dir=$folder/.git --work-tree=$folder status --porcelain)
+l_dirty=${#dirty} #gets length of textual output. >1 means uncommitted files
+
+pushed=$(git --git-dir=$folder/.git --work-tree=$folder log @{push}..)
+l_pushed=${#pushed} #gets length of textual output. 0 means all is pushed
+
+if [ $l_dirty -gt 0 ]; then
+    echo 2
+elif [ ! $l_dirty -gt 0 ] && [ ! $l_pushed -lt 1 ]; then
+    echo 1
+else
+    echo 0
+fi
+

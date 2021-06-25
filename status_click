@@ -1,0 +1,8 @@
+#!/bin/bash
+
+selected=$(status_all | rofi -dmenu -markup-rows -location 2 -yoffset 25 -p Status -format p -lines 5 -theme-str '* {selected-normal-background: #ffffff11;} #window {width:200;}')
+folder=~/Teaching/${selected:3}
+if [ ! -z "$selected" ]; then
+    echo "$folder"
+    alacritty -e zsh -c "cd $folder && git status && zsh" &!
+fi

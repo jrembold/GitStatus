@@ -1,0 +1,17 @@
+#!/bin/bash
+
+out=""
+while read line; do
+    name=$(basename $line)
+    status=$(git_status $line)
+    if [ $status -eq 2 ]; then
+        color="#b03a2e"
+    elif [ $status -eq 1 ]; then
+        color="ca6f1e"
+    else
+        color="1e8449"
+    fi
+    out="$out %{F$color}%{F-}"
+done < ~/Git/GitStatus/git_folders.txt
+
+echo $out

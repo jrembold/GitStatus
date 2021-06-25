@@ -1,0 +1,5 @@
+/home/jedediah/Teaching/Mechanics
+/home/jedediah/Teaching/IntroPhysI
+/home/jedediah/Teaching/IntroPhysII
+/home/jedediah/Teaching/IntroPython
+/home/jedediah/Teaching/Astronomy
